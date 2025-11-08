@@ -6,7 +6,7 @@
 
 <div class="page page_user_profile">
     <div class="profile-header">
-        <h1>{translate key="user.profile"}</h1>
+        <h1>{translate key="Profil"}</h1>
     </div>
 
     <form class="profile-form" id="profile" method="post" action="{url op="saveProfile"}" enctype="multipart/form-data">
