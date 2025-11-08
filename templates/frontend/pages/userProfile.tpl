@@ -5,7 +5,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.profile"}
 
 <div class="page page_user_profile">
-    <div class="profile-header">
+    {% comment %} <div class="profile-header"> {% endcomment %}
         <h1>{translate key="Profil"}</h1>
     </div>
 
