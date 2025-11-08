@@ -1,52 +1,72 @@
 <?php
 {**
- * templates/user/editProfile.tpl
+ * templates/frontend/pages/userProfile.tpl
  *}
+{include file="frontend/components/header.tpl" pageTitle="user.profile"}
+
 <div class="page page_user_profile">
-    <h1>{translate key="user.profile.editProfile"}</h1>
+    <div class="profile-header">
+        <h1>{translate key="user.profile"}</h1>
+    </div>
 
     <form class="profile-form" id="profile" method="post" action="{url op="saveProfile"}" enctype="multipart/form-data">
         {csrf}
 
+        {include file="common/formErrors.tpl"}
+
         <div class="profile-section">
-            <h3>{translate key="user.profile.identity"}</h3>
+            <h2>{translate key="user.profile.identity"}</h2>
             
+            {* First Name *}
             <div class="form-group">
-                <label for="firstName">{translate key="user.firstName"}</label>
+                <label class="form-label" for="firstName">
+                    {translate key="user.firstName"}
+                    <span class="required">*</span>
+                </label>
                 <input type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
             </div>
 
+            {* Last Name *}
             <div class="form-group">
-                <label for="lastName">{translate key="user.lastName"}</label>
+                <label class="form-label" for="lastName">
+                    {translate key="user.lastName"}
+                    <span class="required">*</span>
+                </label>
                 <input type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
             </div>
         </div>
 
         <div class="profile-section">
-            <h3>{translate key="user.profile.contact"}</h3>
+            <h2>{translate key="user.profile.contact"}</h2>
             
+            {* Email *}
             <div class="form-group">
-                <label for="email">{translate key="user.email"}</label>
+                <label class="form-label" for="email">
+                    {translate key="user.email"}
+                    <span class="required">*</span>
+                </label>
                 <input type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required>
             </div>
         </div>
 
         <div class="profile-section">
-            <h3>{translate key="user.profile.public"}</h3>
+            <h2>{translate key="user.profile.public"}</h2>
             
+            {* Bio *}
             <div class="form-group">
-                <label for="affiliation">{translate key="user.affiliation"}</label>
-                <input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" maxlength="255">
-            </div>
-
-            <div class="form-group">
-                <label for="biography">{translate key="user.biography"}</label>
+                <label class="form-label" for="biography">
+                    {translate key="user.biography"}
+                </label>
                 <textarea name="biography" id="biography" rows="5">{$biography|escape}</textarea>
             </div>
         </div>
 
-        <button type="submit" class="submit">
-            {translate key="common.save"}
-        </button>
+        <div class="buttons">
+            <button class="submit" type="submit">
+                {translate key="common.save"}
+            </button>
+        </div>
     </form>
 </div>
+
+{include file="common/frontend/footer.tpl"}
